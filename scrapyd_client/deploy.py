@@ -80,7 +80,7 @@ def main():
         req = Request(_url(target, 'listprojects.json'))
         _add_auth_header(req, target)
         f = urlopen(req)
-        projects = json.loads(f.read())['projects']
+        projects = json.loads(f.read().decode('utf8'))['projects']
         print(os.linesep.join(projects))
         return
 
